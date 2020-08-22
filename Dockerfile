@@ -20,7 +20,7 @@ RUN cat "export XZ_HOME=/usr/local/xz" > /etc/profile \
 RUN wget -q https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.14.tar.xz \
     && xz -d libxcb-1.14.tar.xz \
     && tar xvf libxcb-1.14.tar  \
-    && cp -r libxcb-1.14 /usr/bin/ \
+    && cp -r libxcb-1.14 /usr/local/bin/ \
     && rm libxcb-1.14.tar.xz
     
 RUN wget -q https://minergate.com/download/xfast-ubuntu-cli \
