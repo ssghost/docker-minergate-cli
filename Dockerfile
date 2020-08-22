@@ -7,8 +7,11 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
     
 
-RUN apt-get install apt-utils libxcb1 libx11-xcb1 libxcb-keysyms1 libxcb-image0 libxcb-shm0 libxcb-icccm4 libxcb-render-util0
-
+RUN wget -q https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.14.tar.xz \
+    && xz -d libxcb-1.14.tar.xz
+    && cp -r libxcb-1.14 /usr/bin/
+    && rm libxcb-1.14.tar.xz
+    
 RUN wget -q --content-disposition https://minergate.com/download/deb-cli \
     && dpkg -i *.deb \
     && rm *.deb
